@@ -4,14 +4,20 @@ import Cardio from './component/cardio';
 import React, { useState, useEffect } from 'react';
 
 function App() {
-const [val,setVal]=useState(0)
+const [vals,setVal]=useState([0])
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setVal(Math.floor(Math.random() * (200 - 40) + 40));
-
-    }, 1000);
+     setInterval(() => {
+      setVal((prev)=>{
+       return  [...prev,Math.floor(Math.random() * (200 - 40) + 40)]
+      });
+      },
+    1000);
   }, []);
+
+  console.log(vals);
+  
+  const val=vals[vals.length-1];
 
   return (
     <div className="App">
@@ -22,6 +28,7 @@ const [val,setVal]=useState(0)
         </p>
         <div id="bpm"></div>
         <Cardio data={val}/>
+
       </header>
     </div>
   );

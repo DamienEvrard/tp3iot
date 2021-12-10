@@ -1,6 +1,6 @@
 function valInstantanee(props){
 
-    var val = props.data;
+    var val = props.data.valeur;
 
     var color="";
     if(val>=40&&val<80){

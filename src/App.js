@@ -5,13 +5,21 @@ import Graph from './component/graph';
 import React, { useState, useEffect } from 'react';
 
 function App() {
-const [vals,setVal]=useState([0])
+const [vals,setVal]=useState([{
+                                time: 0,
+                                valeur : 0
+                              }]);
 
 
   useEffect(() => {
      setInterval(() => {
-      setVal((prev)=>{
-       return  [...prev,Math.floor(Math.random() * (200 - 40) + 40)]
+        const val = {
+          time: new Date().getTime(),
+          valeur : Math.floor(Math.random() * (200 - 40) + 40)
+        }
+        
+        setVal((prev)=>{
+        return  [...prev,val]
       });
       },
     1000);
@@ -26,11 +34,11 @@ const [vals,setVal]=useState([0])
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Affichage des cardiogrammes
+          Affichage du cardiogramme
         </p>
         <div id="bpm"></div>
         <Cardio data={val}/>
-        <Graph valeurs = {vals}/>
+        <Graph data = {vals}/>
       </header>
     </div>
   );

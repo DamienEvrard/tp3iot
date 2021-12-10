@@ -14,7 +14,7 @@ const [vals,setVal]=useState([{
   useEffect(() => {
      setInterval(() => {
         const val = {
-          time: new Date().getTime(),
+          time: new Date().toLocaleTimeString('fr-FR'),
           valeur : Math.floor(Math.random() * (200 - 40) + 40)
         }
         

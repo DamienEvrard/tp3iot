@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+import Cardio from './component/cardio';
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
         <p>
           Affichage des cardiogrammes
         </p>
+        <Cardio/>
       </header>
     </div>
   );

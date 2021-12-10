@@ -1,10 +1,12 @@
 import logo from './logo.svg';
 import './App.css';
 import Cardio from './component/cardio';
+import Graph from './component/graph';
 import React, { useState, useEffect } from 'react';
 
 function App() {
 const [vals,setVal]=useState([0])
+
 
   useEffect(() => {
      setInterval(() => {
@@ -16,7 +18,7 @@ const [vals,setVal]=useState([0])
   }, []);
 
   console.log(vals);
-  
+
   const val=vals[vals.length-1];
 
   return (
@@ -28,7 +30,7 @@ const [vals,setVal]=useState([0])
         </p>
         <div id="bpm"></div>
         <Cardio data={val}/>
-
+        <Graph valeurs = {vals}/>
       </header>
     </div>
   );
